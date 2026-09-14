@@ -1,0 +1,500 @@
+/* =========================================================
+   OINDRILA BIRTHDAY WEBSITE
+   File: responsive.css
+   Version: 1.0
+========================================================= */
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .scene {
+        padding: 90px 6vw;
+    }
+
+
+    /* ---------------------------------------------
+       OPENING
+    --------------------------------------------- */
+
+    .opening-title {
+        font-size: clamp(65px, 12vw, 110px);
+    }
+
+
+    /* ---------------------------------------------
+       GALLERY
+    --------------------------------------------- */
+
+    .gallery-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        max-width: 700px;
+    }
+
+    .memory-card:nth-child(2) {
+        transform: translateY(30px);
+    }
+
+    .memory-card:nth-child(3) {
+        grid-column: 1 / -1;
+
+        width: min(330px, 100%);
+
+        margin: 30px auto 0;
+    }
+
+
+    /* ---------------------------------------------
+       WISHES
+    --------------------------------------------- */
+
+    .wish-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        max-width: 650px;
+    }
+
+    .wish-card:nth-child(3) {
+        grid-column: 1 / -1;
+
+        width: min(310px, 100%);
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* ---------------------------------------------
+       GLOBAL
+    --------------------------------------------- */
+
+    .scene {
+        min-height: 100svh;
+
+        padding:
+            85px 22px
+            70px;
+    }
+
+
+    /* ---------------------------------------------
+       MUSIC BUTTON
+    --------------------------------------------- */
+
+    .music-button {
+        top: 15px;
+        right: 15px;
+
+        padding: 9px 12px;
+    }
+
+    .music-text {
+        font-size: 9px;
+    }
+
+
+    /* ---------------------------------------------
+       TYPOGRAPHY
+    --------------------------------------------- */
+
+    .eyebrow {
+        margin-bottom: 18px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.2em;
+    }
+
+    .section-title {
+        font-size:
+            clamp(44px, 13vw, 65px);
+
+        line-height: 0.94;
+    }
+
+    .section-text {
+        margin-top: 22px;
+
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    /* ---------------------------------------------
+       BUTTONS
+    --------------------------------------------- */
+
+    .primary-button {
+        min-height: 50px;
+
+        margin-top: 28px;
+
+        padding:
+            13px 20px;
+
+        font-size: 12px;
+    }
+
+    .secondary-button {
+        min-height: 46px;
+
+        margin-top: 28px;
+
+        padding:
+            11px 17px;
+
+        font-size: 11px;
+    }
+
+
+    /* ---------------------------------------------
+       OPENING
+    --------------------------------------------- */
+
+    .opening-title {
+        font-size:
+            clamp(58px, 18vw, 90px);
+
+        line-height: 0.84;
+    }
+
+    .opening-title span {
+        display: block;
+
+        margin-top: 5px;
+    }
+
+    .opening-text {
+        max-width: 330px;
+
+        margin-top: 25px;
+
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+    .opening-text em {
+        font-size: 16px;
+    }
+
+
+    /* ---------------------------------------------
+       SCROLL HINT
+    --------------------------------------------- */
+
+    .scroll-hint {
+        bottom: 24px;
+
+        width: 100%;
+
+        font-size: 7px;
+
+        letter-spacing: 0.13em;
+    }
+
+    .scroll-line {
+        height: 28px;
+    }
+
+
+    /* ---------------------------------------------
+       BIRTHDAY
+    --------------------------------------------- */
+
+    .birthday-number {
+        font-size: 19px;
+    }
+
+    .birthday-title {
+        font-size:
+            clamp(58px, 17vw, 90px);
+
+        line-height: 0.83;
+    }
+
+    .birthday-name {
+        margin-top: 22px;
+
+        font-size:
+            clamp(32px, 10vw, 48px);
+    }
+
+    .birthday-message {
+        max-width: 330px;
+
+        margin-top: 20px;
+
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+
+    /* ---------------------------------------------
+       MEMORY INTRO
+    --------------------------------------------- */
+
+    .narrow-content {
+        max-width: 350px;
+    }
+
+
+    /* ---------------------------------------------
+       GALLERY
+    --------------------------------------------- */
+
+    .scene-gallery {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .gallery-header {
+        margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 35px;
+
+        width: 100%;
+    }
+
+    .memory-card {
+        width: min(320px, 100%);
+    }
+
+    .memory-card:nth-child(2) {
+        transform: none;
+    }
+
+    .memory-card:nth-child(3) {
+        width: min(320px, 100%);
+
+        margin: 0;
+    }
+
+    .memory-image {
+        aspect-ratio: 4 / 5;
+    }
+
+    .memory-caption {
+        margin-top: 12px;
+
+        font-size: 8px;
+    }
+
+    .gallery-next {
+        margin-top: 55px;
+    }
+
+
+    /* ---------------------------------------------
+       WISHES
+    --------------------------------------------- */
+
+    .wish-grid {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 14px;
+
+        width: 100%;
+
+        margin-top: 35px;
+    }
+
+    .wish-card {
+        width: min(340px, 100%);
+
+        min-height: 190px;
+
+        padding: 22px;
+    }
+
+    .wish-card:nth-child(3) {
+        width: min(340px, 100%);
+
+        margin: 0;
+    }
+
+    .wish-symbol {
+        margin-top: 22px;
+
+        font-size: 38px;
+    }
+
+    .wish-label {
+        margin-top: 20px;
+
+        font-size: 22px;
+    }
+
+    .wish-reveal {
+        font-size: 11px;
+    }
+
+    .wishes-next {
+        margin-top: 35px;
+    }
+
+
+    /* ---------------------------------------------
+       CAKE
+    --------------------------------------------- */
+
+    .cake-container {
+        width: 300px;
+
+        height: 245px;
+
+        margin-top: 35px;
+    }
+
+    .cake {
+        width: 240px;
+
+        height: 140px;
+    }
+
+    .cake-top {
+        width: 240px;
+
+        height: 63px;
+    }
+
+    .cake-body {
+        width: 240px;
+
+        height: 90px;
+    }
+
+    .cake-plate {
+        width: 270px;
+    }
+
+    .candles {
+        gap: 17px;
+    }
+
+    .candle {
+        width: 11px;
+
+        height: 53px;
+    }
+
+    .candle-instruction {
+        font-size: 9px;
+    }
+
+
+    /* ---------------------------------------------
+       FINAL
+    --------------------------------------------- */
+
+    .final-content {
+        max-width: 350px;
+    }
+
+    .final-symbol {
+        font-size: 24px;
+
+        margin-bottom: 20px;
+    }
+
+    .final-title {
+        font-size:
+            clamp(50px, 15vw, 75px);
+
+        line-height: 0.88;
+    }
+
+    .final-divider {
+        margin: 28px auto;
+    }
+
+    .final-message {
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+    .final-signature {
+        margin-top: 24px;
+
+        font-size: 16px;
+    }
+
+    .restart-button {
+        margin-top: 32px;
+    }
+
+
+    /* ---------------------------------------------
+       CUSTOM CURSOR
+       ---------------------------------------------
+       Hide the desktop cursor on mobile.
+    --------------------------------------------- */
+
+    .cursor,
+    .cursor-dot {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .scene {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .opening-title {
+        font-size: 57px;
+    }
+
+    .birthday-title {
+        font-size: 55px;
+    }
+
+    .section-title {
+        font-size: 43px;
+    }
+
+    .cake-container {
+        transform: scale(0.9);
+    }
+
+    .wish-card {
+        min-height: 180px;
+    }
+
+}

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A little birthday surprise for Oindrila."
+    >
+
+    <title>For Oindrila ✨</title>
+
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+
+   
+<!-- =====================================================
+     GSAP
+====================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"
+    defer
+></script>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script
+    src="js/script.js?v=6"
+    defer
+></script>
+
+<script
+    src="js/effects.js?v=6"
+    defer
+></script>
+
+<script
+    src="js/fireworks-theme-v2.js?v=6"
+    defer
+></script>
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         CUSTOM CURSOR
+    ====================================================== -->
+
+    <div
+        class="cursor"
+        id="cursor"
+        aria-hidden="true"
+    ></div>
+
+    <div
+        class="cursor-dot"
+        id="cursorDot"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div
+        class="background"
+        id="background"
+        aria-hidden="true"
+    >
+
+        <div class="background-glow glow-one"></div>
+
+        <div class="background-glow glow-two"></div>
+
+        <div class="background-glow glow-three"></div>
+
+        <div
+            class="stars"
+            id="stars"
+        ></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MUSIC
+    ====================================================== -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        type="button"
+        aria-label="Play birthday music"
+        aria-pressed="false"
+    >
+
+        <span class="music-icon">♫</span>
+
+        <span class="music-text">
+            Music
+        </span>
+
+    </button>
+
+
+    <audio
+        id="birthdayMusic"
+        loop
+        preload="auto"
+    ></audio>
+
+
+    <!-- =====================================================
+         MAIN EXPERIENCE
+    ====================================================== -->
+
+    <main id="birthdayExperience">
+
+
+        <!-- =================================================
+             SCENE 1
+        ================================================== -->
+
+        <section
+            class="scene scene-opening cinematic-opening"
+            id="opening"
+        >
+
+            <div
+                class="opening-orb orb-one"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="opening-orb orb-two"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="opening-orb orb-three"
+                aria-hidden="true"
+            ></div>
+
+
+            <div class="scene-content opening-content">
+
+                <div
+                    class="opening-mini-symbol"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <p class="eyebrow">
+                    A little something for you
+                </p>
+
+
+                <h1 class="opening-title">
+
+                    Hey,
+
+                    <span>
+                        Oindrila.
+                    </span>
+
+                </h1>
+
+
+                <div
+                    class="opening-divider"
+                    aria-hidden="true"
+                ></div>
+
+
+                <p class="opening-text">
+
+                    I could have just said
+                    <em>Happy Birthday</em>...
+
+                    <br>
+
+                    but that felt a little too ordinary.
+
+                </p>
+
+
+                <p class="opening-subtext">
+                    So I made you something instead.
+                </p>
+
+
+                <button
+                    class="primary-button opening-button"
+                    id="openButton"
+                    type="button"
+                >
+
+                    <span>
+                        Open your surprise
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="scroll-hint opening-hint"
+                aria-hidden="true"
+            >
+
+                <span>
+                    Take your time
+                </span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+
+            <div
+                class="opening-corner opening-corner-left"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="opening-corner opening-corner-right"
+                aria-hidden="true"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCENE 2
+        ================================================== -->
+
+        <section
+            class="scene scene-birthday"
+            id="birthday"
+        >
+
+            <div class="birthday-content">
+
+                <p class="eyebrow birthday-eyebrow">
+                    Today is about one person
+                </p>
+
+
+                <div
+                    class="birthday-number"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <h2 class="birthday-title">
+
+                    Happy
+
+                    <span>
+                        Birthday
+                    </span>
+
+                </h2>
+
+
+                <h3 class="birthday-name">
+                    Oindrila
+                </h3>
+
+
+                <p class="birthday-message">
+
+                    May this year give you countless reasons
+                    to smile, laugh, dream bigger and enjoy
+                    all the little moments that make life special.
+
+                    <br>PS. Bore hosna you'll see something special.  
+
+                </p>
+
+
+                <button
+                    class="secondary-button"
+                    id="continueButton"
+                    type="button"
+                >
+
+                    <span>
+                        There's more
+                    </span>
+
+                    <span>
+                        ↓
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCENE 3
+        ================================================== -->
+
+        <section
+            class="scene scene-memories-intro"
+            id="memoriesIntro"
+        >
+
+            <div class="scene-content narrow-content">
+
+                <p class="eyebrow">
+                    A small trip down memory lane
+                </p>
+
+
+                <h2 class="section-title">
+
+                    Some moments
+                    <br>
+                    deserve to be remembered.
+
+                </h2>
+
+
+                <p class="section-text">
+
+                    And since birthdays are supposed to be
+                    about celebrating someone...
+
+                    I thought I'd collect a few things here Don't mind for taking some of your Pictures.
+
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    id="memoriesButton"
+                    type="button"
+                >
+
+                    <span>
+                        Show me
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCENE 4 — 45 PHOTO CIRCULAR ALBUM
+        ================================================== -->
+<!-- =========================================================
+     SCENE 4 — CINEMATIC CIRCULAR MEMORY ALBUM
+     ========================================================= -->
+
+<section
+    class="scene scene-gallery circular-gallery-scene"
+    id="gallery"
+>
+
+    <div class="gallery-header">
+
+        <p class="eyebrow">
+            Memories down the years
+        </p>
+
+       <h2 class="section-title">
+           Little pieces of a story.
+        </h2>
+        <br
+        <p class="circular-gallery-description">
+            I hope you like the photographs I’ve collected for you. I put them together
+            in a little gallery so you can look back on and remember the moments we’ve
+            shared, along with some of your happiest moments. 😊
+        </p>
+
+        <p class="circular-gallery-description">
+            <br>Hold and drag to rotate
+            <br>
+            Click a memory to bring it forward
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         ALBUM
+         ====================================================== -->
+
+    <div
+        class="memory-album"
+        id="memoryAlbum"
+    >
+
+        <div
+            class="album-glow"
+            aria-hidden="true"
+        ></div>
+
+
+        <div
+            class="album-stage"
+            id="albumStage"
+        >
+
+            <div
+                class="album-ring"
+                id="albumRing"
+            ></div>
+
+        </div>
+
+
+        <!-- LEFT -->
+
+        <button
+            class="album-control album-prev"
+            id="albumPrev"
+            type="button"
+            aria-label="Previous memory"
+        >
+            ‹
+        </button>
+
+
+        <!-- RIGHT -->
+
+        <button
+            class="album-control album-next"
+            id="albumNext"
+            type="button"
+            aria-label="Next memory"
+        >
+            ›
+        </button>
+
+
+        <!-- COUNTER -->
+
+        <div class="album-current-counter">
+
+            <span id="albumCurrent">
+                01
+            </span>
+
+            <span class="album-counter-line">
+                /
+            </span>
+
+            <span id="albumTotal">
+                41
+            </span>
+
+        </div>
+
+
+        <div class="album-instruction">
+
+            <span>
+                Hold & drag
+            </span>
+
+            <span class="instruction-dot">
+                •
+            </span>
+
+            <span>
+                Click
+            </span>
+
+            <span class="instruction-dot">
+                •
+            </span>
+
+            <span>
+                Explore
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LARGE PHOTO VIEW
+         ====================================================== -->
+
+    <div
+        class="memory-lightbox"
+        id="memoryLightbox"
+        aria-hidden="true"
+    >
+
+        <div
+            class="memory-lightbox-backdrop"
+            id="memoryLightboxBackdrop"
+        ></div>
+
+
+        <button
+            class="memory-lightbox-close"
+            id="memoryLightboxClose"
+            type="button"
+            aria-label="Close photo"
+        >
+            ×
+        </button>
+
+
+        <button
+            class="memory-lightbox-prev"
+            id="memoryLightboxPrev"
+            type="button"
+            aria-label="Previous photo"
+        >
+            ‹
+        </button>
+
+
+        <div class="memory-lightbox-content">
+
+            <img
+                id="memoryLightboxImage"
+                src=""
+                alt="Memory"
+            >
+
+            <div
+                class="memory-lightbox-number"
+                id="memoryLightboxNumber"
+            >
+                01 / 41
+            </div>
+
+        </div>
+
+
+        <button
+            class="memory-lightbox-next"
+            id="memoryLightboxNext"
+            type="button"
+            aria-label="Next photo"
+        >
+            ›
+        </button>
+
+    </div>
+
+
+    <button
+        class="secondary-button gallery-next"
+        id="galleryButton"
+        type="button"
+    >
+
+        <span>
+            One more thing
+        </span>
+
+        <span>
+            ↓
+        </span>
+
+    </button>
+
+</section>
+
+
+
+        <!-- =================================================
+             SCENE 5 — WISHES
+        ================================================== -->
+
+        <section
+            class="scene scene-wishes"
+            id="wishes"
+        >
+
+            <div class="scene-content">
+
+                <p class="eyebrow">
+                    Three wishes for you
+                </p>
+
+
+                <h2 class="section-title">
+                    Pick one.
+                </h2>
+
+
+                <p class="section-text">
+                    Each one is hiding a little message.
+                </p>
+
+
+                <div class="wish-grid">
+
+
+                    <button
+                        class="wish-card"
+                        type="button"
+                        data-wish="1"
+                    >
+
+                        <span class="wish-number">
+                            01
+                        </span>
+
+                        <span class="wish-symbol">
+                            ✦
+                        </span>
+
+                        <span class="wish-label">
+                            For your dreams
+                        </span>
+
+                        <span class="wish-reveal">
+                            I hope you get closer to
+                            everything you've been dreaming about.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="wish-card"
+                        type="button"
+                        data-wish="2"
+                    >
+
+                        <span class="wish-number">
+                            02
+                        </span>
+
+                        <span class="wish-symbol">
+                            ♡
+                        </span>
+
+                        <span class="wish-label">
+                            For your happiness
+                        </span>
+
+                        <span class="wish-reveal">
+                            I hope you have more genuinely
+                            happy days than difficult ones.
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="wish-card"
+                        type="button"
+                        data-wish="3"
+                    >
+
+                        <span class="wish-number">
+                            03
+                        </span>
+
+                        <span class="wish-symbol">
+                            ∞
+                        </span>
+
+                        <span class="wish-label">
+                            For the year ahead
+                        </span>
+
+                        <span class="wish-reveal">
+                            I hope this becomes one of your
+                            favourite chapters yet.
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+                <button
+                    class="secondary-button wishes-next"
+                    id="wishesButton"
+                    type="button"
+                >
+
+                    <span>
+                        Keep going
+                    </span>
+
+                    <span>
+                        ↓
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCENE 6 — CAKE
+        ================================================== -->
+
+        <section
+            class="scene scene-cake"
+            id="cake"
+        >
+
+            <div class="scene-content">
+
+                <p class="eyebrow">
+                    Okay, birthday girl...
+                </p>
+
+
+                <h2 class="section-title">
+                    Make a wish.
+                </h2>
+
+
+                <p class="section-text">
+                    But first, you have to put out the candles.
+
+                    
+                </p>
+
+
+                <div
+                    class="cake-container"
+                    id="cakeContainer"
+                >
+
+                    <div class="candles">
+
+                        <button
+                            class="candle"
+                            type="button"
+                            data-candle="1"
+                            aria-label="Blow out candle 1"
+                        >
+                            <span class="flame"></span>
+                        </button>
+
+
+                        <button
+                            class="candle"
+                            type="button"
+                            data-candle="2"
+                            aria-label="Blow out candle 2"
+                        >
+                            <span class="flame"></span>
+                        </button>
+
+
+                        <button
+                            class="candle"
+                            type="button"
+                            data-candle="3"
+                            aria-label="Blow out candle 3"
+                        >
+                            <span class="flame"></span>
+                        </button>
+
+
+                        <button
+                            class="candle"
+                            type="button"
+                            data-candle="4"
+                            aria-label="Blow out candle 4"
+                        >
+                            <span class="flame"></span>
+                        </button>
+
+
+                        <button
+                            class="candle"
+                            type="button"
+                            data-candle="5"
+                            aria-label="Blow out candle 5"
+                        >
+                            <span class="flame"></span>
+                        </button>
+
+                    </div>
+
+
+                <div class="cake">
+
+                   <!-- TOY TEDDY -->
+                   <div class="cake-teddy" aria-hidden="true">
+
+                        <div class="teddy-ear teddy-ear-left"></div>
+                        <div class="teddy-ear teddy-ear-right"></div>
+
+                        <div class="teddy-head">
+
+                          <div class="teddy-eye teddy-eye-left"></div>
+                          <div class="teddy-eye teddy-eye-right"></div>
+
+                        <div class="teddy-muzzle">
+                          <div class="teddy-nose"></div>
+                          <div class="teddy-mouth"></div>
+                        </div>
+
+                    </div>
+
+                <div class="teddy-body">
+
+                <div class="teddy-arm teddy-arm-left"></div>
+                <div class="teddy-arm teddy-arm-right"></div>
+
+                <div class="teddy-belly"></div>
+
+                <div class="teddy-foot teddy-foot-left"></div>
+                <div class="teddy-foot teddy-foot-right"></div>
+
+                </div>
+
+                </div>
+
+
+    <div class="cake-top"></div>
+
+                        <div class="cake-body">
+
+                            <div class="cake-decoration"></div>
+
+                            <div class="cake-decoration"></div>
+
+                            <div class="cake-decoration"></div>
+
+                        </div>
+
+                        <div class="cake-plate"></div>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    class="candle-instruction"
+                    id="candleInstruction"
+                    aria-live="polite"
+                >
+                    Tap the candles ✨
+                </p>
+
+
+                <button
+                    class="primary-button hidden"
+                    id="finalButton"
+                    type="button"
+                >
+
+                    <span>
+                        See your final surprise
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SCENE 7 — FINAL
+        ================================================== -->
+
+        <section
+            class="scene scene-final"
+            id="final"
+        >
+
+            <div
+                class="final-moon"
+                aria-hidden="true"
+            >
+
+                <div class="moon-glow"></div>
+
+                <div class="moon"></div>
+
+            </div>
+
+
+            <div
+                class="final-stars"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="final-clouds"
+                aria-hidden="true"
+            >
+
+                <div class="final-cloud final-cloud-1"></div>
+
+                <div class="final-cloud final-cloud-2"></div>
+
+                <div class="final-cloud final-cloud-3"></div>
+
+                <div class="final-cloud final-cloud-4"></div>
+
+            </div>
+
+
+            <div
+                class="final-petals"
+                aria-hidden="true"
+            ></div>
+
+
+            <div
+                class="final-hearts"
+                aria-hidden="true"
+            ></div>
+
+
+            <div class="final-content">
+
+                <div
+                    class="final-symbol"
+                    aria-hidden="true"
+                >
+                    ✦
+                </div>
+
+
+                <p class="eyebrow final-eyebrow">
+                    One last thing...
+                </p>
+
+
+                <div class="final-letter">
+
+
+                    <div
+                        class="letter-top-decoration"
+                        aria-hidden="true"
+                    >
+
+                        <span></span>
+
+                        <i>♡</i>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <div
+                        class="final-heart"
+                        aria-hidden="true"
+                    >
+                        ♡
+                    </div>
+
+
+                    <div class="final-letter-lines">
+
+                        <p class="final-line">
+                            I could have bought you something.
+                        </p>
+
+                        <p class="final-line">
+                            I could have written you a letter.
+                        </p>
+
+
+                        <div
+                            class="final-space"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <p class="final-line">
+                            But I wanted to give you something
+                        </p>
+
+                        <p class="final-line">
+                            that couldn't simply be bought,
+                        </p>
+
+                        <p class="final-line">
+                            wrapped, or forgotten in a drawer.
+                        </p>
+
+
+                        <div
+                            class="final-space"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <p class="final-line">
+                            I wanted to make something that existed
+                        </p>
+
+                        <p class="final-line final-special">
+                            only because you do.
+                            <span>♡</span>
+                        </p>
+
+
+                        <div
+                            class="final-space"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <p class="final-line">
+                            So I put a little piece of my time into this,
+                        </p>
+
+                        <p class="final-line">
+                            and made this little corner of the internet
+                        </p>
+
+                        <p class="final-line final-for-you">
+                            just for you.
+                        </p>
+
+                    </div>
+
+
+                    <div class="final-birthday">
+
+                        <div
+                            class="birthday-light"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <span class="final-birthday-small">
+                            with all my heart
+                        </span>
+
+
+                        <h2 class="final-title">
+
+                            <span class="title-happy">
+                                Happy Birthday,
+                            </span>
+
+                            <span class="title-name">
+                                Oindrila.
+                            </span>
+
+                        </h2>
+
+
+                        <div
+                            class="final-flower"
+                            aria-hidden="true"
+                        >
+                            🌷
+                        </div>
+
+                    </div>
+
+
+                    <div class="final-signature-new">
+
+                        <span class="signature-intro">
+                            Always by your side,
+                        </span>
+
+                        <span class="signature-name">
+
+                            Prasenjit
+
+                            <span class="signature-heart">
+                                ♡
+                            </span>
+
+                        </span>
+
+                        <div
+                            class="signature-line"
+                            aria-hidden="true"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="final-closing">
+
+                        <span>
+                            made with a little piece of my heart
+                        </span>
+
+                        <span>
+                            ✦
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    class="primary-button restart-button"
+                    id="restartButton"
+                    type="button"
+                >
+
+                    <span>
+                        Replay the surprise
+                    </span>
+
+                    <span>
+                        ↻
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <div
+                class="final-particles"
+                id="finalParticles"
+                aria-hidden="true"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         CONFETTI
+    ====================================================== -->
+
+    <div
+        class="confetti-container"
+        id="confettiContainer"
+        aria-hidden="true"
+    ></div>
+
+
+</body>
+
+</html>
