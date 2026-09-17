@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (birthdayMusic) {
 
         birthdayMusic.src =
-            "music/MOHIT_CHAUHAN_-_TUM_SE_HI_FILM_JAB_WE_MET_(mp3.pm).mp3";
+            "song.mp3";
 
         birthdayMusic.loop = true;
         birthdayMusic.volume = 0.45;
