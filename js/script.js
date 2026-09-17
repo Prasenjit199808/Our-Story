@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (birthdayMusic) {
 
         birthdayMusic.src =
-            "song.mp3";
+            "music/song.mp3";
 
         birthdayMusic.loop = true;
         birthdayMusic.volume = 0.45;
