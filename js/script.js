@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const wishes = document.getElementById("wishes");
     const cake = document.getElementById("cake");
     const finalScene = document.getElementById("final");
+    const sketchReveal =
+          document.getElementById("sketchReveal");
+
+    const finalMessage =
+         document.getElementById("finalMessage");
 
     const openButton = document.getElementById("openButton");
     const continueButton = document.getElementById("continueButton");
@@ -930,158 +935,479 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+/* =====================================================
+   PENCIL SKETCH → PHOTO → FINAL LETTER
+===================================================== */
 
-    /* =====================================================
-       FINAL BUTTON
-    ====================================================== */
+let sketchAnimationStarted = false;
 
-    if (finalButton) {
+/* =====================================================
+   START SKETCH REVEAL
+===================================================== */
 
-        finalButton.addEventListener(
-            "click",
-            () => {
+function startSketchReveal() {
 
-                goToScene(finalScene);
-
-
-                setTimeout(
-                    () => {
-
-                        launchConfetti();
-
-                    },
-                    500
-                );
-
-            }
+    const sketchReveal =
+        document.getElementById(
+            "sketchReveal"
         );
+
+    const finalScene =
+        document.getElementById(
+            "final"
+        );
+
+
+    if (
+        !sketchReveal ||
+        !finalScene
+    ) {
+
+        console.warn(
+            "Sketch or final scene not found."
+        );
+
+        return;
 
     }
 
 
+    if (
+        sketchAnimationStarted
+    ) {
+
+        return;
+
+    }
+
+
+    sketchAnimationStarted =
+        true;
+
+
+    /* =================================================
+       KEEP FINAL LETTER HIDDEN
+    ================================================= */
+
+    finalScene.classList.remove(
+        "sketch-finished"
+    );
+
+    finalScene.classList.add(
+        "sketch-playing"
+    );
+
+
+    /* =================================================
+       RESET SKETCH
+    ================================================= */
+
+    sketchReveal.classList.remove(
+        "active",
+        "drawing",
+        "sketch-complete",
+        "photo-reveal"
+    );
+
+
+    /* =================================================
+       STEP 1 — SHOW SKETCH
+    ================================================= */
+
+    setTimeout(
+        () => {
+
+            sketchReveal.classList.add(
+                "active"
+            );
+
+        },
+        400
+    );
+
+
+    /* =================================================
+       STEP 2 — START DRAWING
+    ================================================= */
+
+    setTimeout(
+        () => {
+
+            sketchReveal.classList.add(
+                "drawing"
+            );
+
+        },
+        1400
+    );
+
+
+    /* =================================================
+       STEP 3 — DRAWING COMPLETE
+    ================================================= */
+
+    setTimeout(
+        () => {
+
+            sketchReveal.classList.remove(
+                "drawing"
+            );
+
+            sketchReveal.classList.add(
+                "sketch-complete"
+            );
+
+        },
+        6900
+    );
+
+
+    /* =================================================
+       STEP 4 — PHOTO REVEAL
+    ================================================= */
+
+    setTimeout(
+        () => {
+
+            sketchReveal.classList.add(
+                "photo-reveal"
+            );
+
+        },
+        7600
+    );
+
+
+    /* =================================================
+       STEP 5 — PHOTO FINISHED
+    ================================================= */
+
+    setTimeout(
+        () => {
+
+            if (finalScene) {
+
+                finalScene.classList.remove(
+                    "sketch-playing"
+                );
+
+                finalScene.classList.add(
+                    "sketch-finished"
+                );
+
+            }
+
+
+            /* -----------------------------------------
+               Tell effects.js:
+               START FINAL LETTER NOW
+            ----------------------------------------- */
+
+            document.dispatchEvent(
+                new CustomEvent(
+                    "sketchRevealFinished"
+                )
+            );
+
+        },
+        12200
+    );
+
+}
+
+/* =====================================================
+   FINAL BUTTON
+===================================================== */
+
+if (finalButton) {
+
+    finalButton.addEventListener(
+        "click",
+        () => {
+
+            goToScene(finalScene);
+
+            setTimeout(
+                () => {
+                    launchConfetti();
+                },
+                500
+            );
+
+            setTimeout(
+                () => {
+                    startSketchReveal();
+                },
+                1000
+            );
+
+        }
+    );
+
+}
+
     /* =====================================================
-       RESTART
-    ====================================================== */
+   RESTART
+===================================================== */
 
-    if (restartButton) {
+if (restartButton) {
 
-        restartButton.addEventListener(
-            "click",
-            () => {
+    restartButton.addEventListener(
+        "click",
+        () => {
 
-                candlesRemaining =
-                    candles.length;
+            /* -----------------------------------------
+               RESET SKETCH ANIMATION
+            ----------------------------------------- */
+
+            sketchAnimationStarted = false;
 
 
-                candles.forEach(
-                    (candle) => {
+            if (sketchReveal) {
 
-                        candle.classList.remove(
-                            "is-out",
-                            "is-extinguishing",
-                            "flame-wind"
+                sketchReveal.classList.remove(
+                    "active",
+                    "drawing",
+                    "sketch-complete",
+                    "photo-reveal"
+                );
+
+            }
+
+
+            if (finalScene) {
+
+                finalScene.classList.remove(
+                    "sketch-playing",
+                    "sketch-finished"
+                );
+
+            }
+
+
+            /* -----------------------------------------
+               TELL effects.js TO RESET
+            ----------------------------------------- */
+
+            document.dispatchEvent(
+                new CustomEvent(
+                    "birthdayExperienceRestart"
+                )
+            );
+
+
+            /* -----------------------------------------
+               RESET CANDLES
+            ----------------------------------------- */
+
+            candlesRemaining =
+                candles.length;
+
+
+            candles.forEach(
+                (candle) => {
+
+                    candle.classList.remove(
+                        "is-out",
+                        "is-extinguishing",
+                        "flame-wind"
+                    );
+
+
+                    /* Reset GSAP / inline transforms */
+
+                    if (
+                        typeof gsap !== "undefined"
+                    ) {
+
+                        gsap.killTweensOf(
+                            candle
                         );
 
-                        candle.style.transform = "";
-                        candle.style.opacity = "";
-                        candle.style.filter = "";
-
-                        candle
-                            .querySelectorAll(
-                                ".candle-smoke, .candle-spark"
-                            )
-                            .forEach(
-                                element => {
-                                    element.remove();
-                                }
-                            );
+                        gsap.set(
+                            candle,
+                            {
+                                rotation: 0,
+                                scale: 1,
+                                opacity: 1,
+                                clearProps: "transform"
+                            }
+                        );
 
                     }
+
+                    else {
+
+                        candle.style.transform =
+                            "";
+
+                        candle.style.opacity =
+                            "";
+
+                        candle.style.filter =
+                            "";
+
+                    }
+
+
+                    /* Remove old smoke and sparks */
+
+                    candle
+                        .querySelectorAll(
+                            ".candle-smoke, .candle-spark"
+                        )
+                        .forEach(
+                            (element) => {
+
+                                element.remove();
+
+                            }
+                        );
+
+                }
+            );
+
+
+            /* -----------------------------------------
+               RESET CAKE
+            ----------------------------------------- */
+
+            if (cakeContainer) {
+
+                cakeContainer.classList.remove(
+                    "all-candles-out"
+                );
+
+            }
+
+
+            /* -----------------------------------------
+               RESET TEDDY
+            ----------------------------------------- */
+
+            const teddy =
+                document.querySelector(
+                    ".cake-teddy"
                 );
 
 
-                if (cakeContainer) {
+            if (teddy) {
 
-                    cakeContainer.classList.remove(
-                        "all-candles-out"
-                    );
+                teddy.classList.remove(
+                    "teddy-celebrate"
+                );
 
-                }
-
-
-                const teddy =
-                    document.querySelector(
-                        ".cake-teddy"
-                    );
-
-                if (teddy) {
-
-                    teddy.classList.remove(
-                        "teddy-celebrate"
-                    );
-
-                }
+            }
 
 
-                if (candleInstruction) {
+            /* -----------------------------------------
+               RESET CANDLE MESSAGE
+            ----------------------------------------- */
 
-                    candleInstruction.textContent =
-                        "Tap the candles ✨";
+            if (candleInstruction) {
 
-                }
+                candleInstruction.textContent =
+                    "Tap the candles ✨";
 
-
-                if (finalButton) {
-
-                    finalButton.classList.add(
-                        "hidden"
-                    );
-
-                }
+            }
 
 
-                wishCards.forEach(
-                    (card) => {
+            /* -----------------------------------------
+               HIDE FINAL BUTTON
+            ----------------------------------------- */
 
-                        card.classList.remove(
-                            "is-open"
-                        );
+            if (finalButton) {
 
-                    }
+                finalButton.classList.add(
+                    "hidden"
                 );
 
 
-                if (confettiContainer) {
+                if (
+                    typeof gsap !== "undefined"
+                ) {
 
-                    confettiContainer.innerHTML =
-                        "";
+                    gsap.killTweensOf(
+                        finalButton
+                    );
+
+                    gsap.set(
+                        finalButton,
+                        {
+                            opacity: 0,
+                            y: 22,
+                            scale: .88
+                        }
+                    );
 
                 }
 
+            }
 
-                if (birthdayMusic) {
 
-                    birthdayMusic.pause();
+            /* -----------------------------------------
+               RESET WISH CARDS
+            ----------------------------------------- */
 
-                    birthdayMusic.currentTime = 0;
+            wishCards.forEach(
+                (card) => {
+
+                    card.classList.remove(
+                        "is-open"
+                    );
 
                 }
+            );
 
 
-                musicPlaying = false;
+            /* -----------------------------------------
+               RESET CONFETTI
+            ----------------------------------------- */
 
-                updateMusicButton();
+            if (confettiContainer) {
+
+                confettiContainer.innerHTML =
+                    "";
+
+            }
 
 
-                window.scrollTo({
+            /* -----------------------------------------
+               RESET MUSIC
+            ----------------------------------------- */
+
+            if (birthdayMusic) {
+
+                birthdayMusic.pause();
+
+                birthdayMusic.currentTime =
+                    0;
+
+            }
+
+
+            musicPlaying =
+                false;
+
+
+            updateMusicButton();
+
+
+            /* -----------------------------------------
+               GO BACK TO START
+            ----------------------------------------- */
+
+            window.scrollTo(
+                {
                     top: 0,
                     behavior: "smooth"
-                });
+                }
+            );
 
-            }
-        );
+        }
+    );
 
-    }
+}
 
 
     /* =====================================================
