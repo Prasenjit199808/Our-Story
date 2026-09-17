@@ -3647,61 +3647,14 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        /* ========================================================
-           FINAL LINES
-        ======================================================== */
 
-        const lines =
-            finalScene.querySelectorAll(
-                ".final-line"
-            );
-
-        if (
-            hasGSAP &&
-            !reducedMotion
-        ) {
-
-            gsap.fromTo(
-                lines,
-                {
-                    opacity: 0,
-                    y: 18
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: .75,
-                    stagger: .18,
-                    delay: .7,
-                    ease: "power3.out"
-                }
-            );
-
-        } else {
-
-            lines.forEach(
-                line => {
-
-                    line.style.opacity =
-                        "1";
-
-                    line.style.transform =
-                        "none";
-
-                }
-            );
-
-        }
 
 
         /* ========================================================
            BIRTHDAY
         ======================================================== */
 
-        const birthdayText =
-            finalScene.querySelector(
-                ".final-birthday"
-            );
+        
 
         if (birthdayText) {
 
@@ -3742,10 +3695,7 @@ document.addEventListener("DOMContentLoaded", () => {
            TITLE
         ======================================================== */
 
-        const title =
-            finalScene.querySelector(
-                ".final-title"
-            );
+        
 
         if (title) {
 
@@ -3801,10 +3751,7 @@ document.addEventListener("DOMContentLoaded", () => {
            FLOWER
         ======================================================== */
 
-        const flower =
-            finalScene.querySelector(
-                ".final-flower"
-            );
+        
 
         if (flower) {
 
@@ -3848,11 +3795,6 @@ document.addEventListener("DOMContentLoaded", () => {
            SIGNATURE
         ======================================================== */
 
-        const signature =
-            finalScene.querySelector(
-                ".final-signature-new"
-            );
-
         if (signature) {
 
             if (
@@ -3893,10 +3835,7 @@ document.addEventListener("DOMContentLoaded", () => {
            CLOSING
         ======================================================== */
 
-        const closing =
-            finalScene.querySelector(
-                ".final-closing"
-            );
+        
 
         if (closing) {
 
@@ -3938,10 +3877,7 @@ document.addEventListener("DOMContentLoaded", () => {
            REPLAY
         ======================================================== */
 
-        const replay =
-            finalScene.querySelector(
-                "#restartButton"
-            );
+        
 
         if (replay) {
 
@@ -3981,95 +3917,98 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }
-
+ 
 
     /* ============================================================
-       FINAL SCENE OBSERVER
-    ============================================================ */
+   FINAL SCENE — SKETCH → LETTER
+============================================================ */
 
-    if (finalScene) {
+/*
+ * IMPORTANT:
+ * Do NOT start the final animation when the final scene
+ * enters the viewport.
+ *
+ * The sketch must finish first.
+ */
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
+document.addEventListener(
+    "sketchRevealFinished",
+    () => {
 
-                    entries.forEach(
-                        entry => {
+        if (!finalScene) {
+            return;
+        }
 
-                            if (
-                                entry.isIntersecting &&
-                                !document
-                                     .querySelector("#finalButton")
-                                     ?.classList
-                                     .contains("hidden")
-                            ) {
 
-                                startFinalAnimation();
+        /*
+         * Sketch is completely finished.
+         */
 
-                                observer.unobserve(
-                                    finalScene
-                                );
+        finalScene.classList.remove(
+            "sketch-playing"
+        );
 
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: .12
-                }
-            );
-
-        observer.observe(
-            finalScene
+        finalScene.classList.add(
+            "sketch-finished"
         );
 
 
-        const checkFinal =
-            () => {
-
-                if (
-                    finalAnimationStarted
-                ) {
-                    return;
-                }
-
-                const rect =
-                    finalScene.getBoundingClientRect();
-
-                if (
-                    rect.top <
-                    window.innerHeight * .9 &&
-                    rect.bottom >
-                    window.innerHeight * .1 &&
-                    !document
-                        .querySelector("#finalButton")
-                        ?.classList
-                        .contains("hidden")
-                ) {
-
-                    startFinalAnimation();
-
-                }
-
-            };
-
-        window.addEventListener(
-            "scroll",
-            checkFinal,
-            {
-                passive: true
-            }
-        );
+        /*
+         * Now start the ORIGINAL final-letter animation.
+         */
 
         setTimeout(
-            checkFinal,
-            500
+            () => {
+
+                startFinalAnimation();
+
+            },
+            150
         );
 
     }
+);
 
+
+/* ============================================================
+   FINAL SCENE — RESTART
+============================================================ */
+
+document.addEventListener(
+    "birthdayExperienceRestart",
+    () => {
+
+        finalAnimationStarted = false;
+
+
+        if (!finalScene) {
+            return;
+        }
+
+
+        finalScene.classList.remove(
+            "final-animation-started",
+            "sketch-playing",
+            "sketch-finished"
+        );
+
+
+        /*
+         * Stop only the decorative GSAP animations.
+         */
+
+        if (hasGSAP) {
+
+            gsap.killTweensOf(
+                finalScene.querySelectorAll(
+                    ".moon, .moon-glow, .final-cloud"
+                )
+            );
+
+        }
+
+    }
+);
 
     /* ============================================================
        INITIALIZE ALBUM
