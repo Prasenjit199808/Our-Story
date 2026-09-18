@@ -565,3 +565,82 @@
         line-height: 0.95 !important;
     }
 }
+
+/* =========================================================
+   MOBILE ALIGNMENT FIX
+   Fixes photo + letter section getting cut off
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Stop the whole website from creating horizontal scrolling */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    /* Main containers */
+    .container,
+    .section,
+    .scene,
+    .content,
+    .wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Any two-column layout becomes one column */
+    .sketch-section,
+    .memory-section,
+    .letter-section,
+    .memory-content,
+    .letter-content {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Photo */
+    .sketch-section img,
+    .memory-section img,
+    .letter-section img,
+    .memory-content img {
+        width: 90% !important;
+        max-width: 90% !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        box-sizing: border-box;
+    }
+
+    /* Text / letter */
+    .letter,
+    .letter-text,
+    .memory-text,
+    .letter-content {
+        width: 90% !important;
+        max-width: 90% !important;
+        margin: 30px auto 0 !important;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* Prevent large desktop headings from overflowing */
+    h1,
+    h2,
+    h3 {
+        max-width: 100% !important;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Prevent fixed-width elements from pushing the page */
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
